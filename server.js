@@ -32,7 +32,9 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.resolve(__dirname, 'front-end', 'build', 'index.html'));
   });
 }
-
+app.get('/' , (req,res)=>{
+  res.send('server for KaranKaira-Keeper App ')
+}) 
 
 app.listen(PORT, function (req, res) {
     console.log("Server is listening on port " + PORT);
