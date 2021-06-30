@@ -4,7 +4,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const router = require("./routes/notes");
+const notesRouter = require("./routes/notes");
 const path = require("path"); 
 
 const app = express();
@@ -13,8 +13,7 @@ const PORT = process.env.PORT || 5000;
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cors());
-app.use("/api", router);
-
+app.use(notesRouter);
 /*  DATABASE SETUP  */
 mongoose.connect(process.env.DB_LINK, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false});
 const db = mongoose.connection;
